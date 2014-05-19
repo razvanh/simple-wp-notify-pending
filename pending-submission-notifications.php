@@ -37,9 +37,7 @@ function pending_submission_notification_options() {
 	<div class="wrap">
 	<h2>Pending Submission Notifications</h2>
 	<p>Who should receive an email notification for new submissions?</p>
-
 	<form method="post" action="options.php">
-
 		<?php settings_fields( 'pending-submission-notification-group' ); ?>
 		<?php do_settings_sections( 'pending-submission-notification-group' ); ?>
 		<table class="form-table">
@@ -48,24 +46,18 @@ function pending_submission_notification_options() {
         	<td><input type="text" name="pending_submission_notification_admin_email" class="regular-text" value="<?php echo get_option('pending_submission_notification_admin_email'); ?>" /></td>
         	</tr>
 		</table>
-
 		<?php submit_button(); ?>
-
 	</form>
 	</div>
-
 <?php
-
 }
 
-
 add_action('transition_post_status','pending_submission_send_email', 10, 3 );
-
 function pending_submission_send_email( $new_status, $old_status, $post ) {
 
 // Notifiy Admin that Contributor has writen a post
 if ($new_status == 'pending' && user_can($post->post_author, 'edit_posts') && !user_can($post->post_author, 'publish_posts')) {
-	$admins = get_option('pending_submission_notification_admin_email');
+	$admins = (empty(get_option('pending_submission_notification_admin_email'))) ? get_option('admin_email') : get_option('pending_submission_notification_admin_email');
 	$url = get_permalink($post->ID);
 	$edit_link = get_edit_post_link($post->ID, '');
 	$preview_link = get_permalink($post->ID) . '&preview=true';
@@ -92,4 +84,5 @@ else if ($old_status == 'pending' && $new_status == 'publish' && user_can($post-
 	$result = wp_mail($username->user_email, $subject, $message);
 	}
 }
+
 ?>
