@@ -57,7 +57,8 @@ function pending_submission_send_email( $new_status, $old_status, $post ) {
 
 // Notifiy Admin that Contributor has writen a post
 if ($new_status == 'pending' && user_can($post->post_author, 'edit_posts') && !user_can($post->post_author, 'publish_posts')) {
-	$admins = (empty(get_option('pending_submission_notification_admin_email'))) ? get_option('admin_email') : get_option('pending_submission_notification_admin_email');
+	$pending_submission_email = get_option('pending_submission_notification_admin_email');
+	$admins = (empty($pending_submission_email)) ? get_option('admin_email') : $pending_submission_email;
 	$url = get_permalink($post->ID);
 	$edit_link = get_edit_post_link($post->ID, '');
 	$preview_link = get_permalink($post->ID) . '&preview=true';
