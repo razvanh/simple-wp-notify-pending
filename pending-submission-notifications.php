@@ -38,23 +38,23 @@ function pending_submission_notifications_send_email( $new_status, $old_status, 
 		$preview_link             = get_permalink( $post->ID ) . '&preview=true';
 		$username                 = get_userdata( $post->post_author );
 		$username_last_edit       = get_the_modified_author();
-		$subject                  = 'New submission pending review: "' . $post->post_title . '"';
-		$message                  = 'A new submission is pending review.';
+		$subject                  = __( 'New submission pending review', 'pending-submission-notifications' ) . ': "' . $post->post_title . '"';
+		$message                  = __( 'A new submission is pending review.', 'pending-submission-notifications' );
 		$message                 .= "\r\n\r\n";
-		$message                 .= "Author: $username->user_login\r\n";
-		$message                 .= "Title: $post->post_title\r\n";
-		$message                 .= "Last Edited By: $username_last_edit\r\n";
-		$message                 .= "Last Edited Date: $post->post_modified";
+		$message                 .= __( 'Author', 'pending-submission-notifications' ) . ': ' . $username->user_login . "\r\n";
+		$message                 .= __( 'Title', 'pending-submission-notifications' ) . ': ' . $post->post_title . "\r\n";
+		$message                 .= __( 'Last edited by', 'pending-submission-notifications' ) . ': ' . $username_last_edit . "\r\n";
+		$message                 .= __( 'Last edit date', 'pending-submission-notifications' ) . ': ' . $post->post_modified;
 		$message                 .= "\r\n\r\n";
-		$message                 .= "Edit the submission: $edit_link\r\n";
-		$message                 .= "Preview it: $preview_link";
+		$message                 .= __( 'Edit the submission', 'pending-submission-notifications' ) . ': ' . $edit_link . "\r\n";
+		$message                 .= __( 'Preview the submission', 'pending-submission-notifications' ) . ': ' . $preview_link;
 		$result                   = wp_mail( $admins, $subject, $message );
 	} // Notify Contributor that Admin has published their post.
 	elseif ( 'pending' === $old_status && 'publish' === $new_status && user_can( $post->post_author, 'edit_posts' ) && ! user_can( $post->post_author, 'publish_posts' ) ) {
 		$username = get_userdata( $post->post_author );
 		$url      = get_permalink( $post->ID );
-		$subject  = 'Your submission is now live: ' . $post->post_title;
-		$message  = '"' . $post->post_title . '"' . " was just published!. \r\n";
+		$subject  = __( 'Your submission is now live! ', 'pending-submission-notifications' );
+		$message  = '"' . $post->post_title . '" ' . __( 'was just published ', 'pending-submission-notifications' ) . "! \r\n\r\n";
 		$message .= $url;
 		$result   = wp_mail( $username->user_email, $subject, $message );
 	}
