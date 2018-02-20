@@ -1,14 +1,15 @@
 <?php
 /**
-Plugin Name: Pending Submission Notification
-Plugin URI: http://lifeofadesigner.com
-Description: Send email notifications to the admin whenever a new article is submitted for review by a contributor
-Author: Razvan Horeanga
-Version: 1.1
-Author URI: http://lifeofadesigner.com
+ * Plugin Name: Pending Submission Notification
+ * Plugin URI: http://lifeofadesigner.com
+ * Description: Send email notifications to the admin whenever a new article is submitted for review by a contributor
+ * Author: Razvan Horeanga
+﻿﻿ * ﻿Text Domain: pending-submission-notifications
+ * Version: 1.1
+ * Author URI: http://lifeofadesigner.com
 
-@package Pending_Submission_Notification
-@version 1.1
+ * @package Pending_Submission_Notification
+ * @version 1.1
  **/
 
 // Exit if file is called directly.
@@ -18,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once plugin_dir_path( __FILE__ ) . 'admin/admin.php';
 
-add_action( 'transition_post_status', 'pending_submission_send_email', 10, 3 );
+add_action( 'transition_post_status', 'pending_submission_notifications_send_email', 10, 3 );
 
 /**
  * Send out email depending on who updates the status of the post.
@@ -27,7 +28,7 @@ add_action( 'transition_post_status', 'pending_submission_send_email', 10, 3 );
  * @param string  $old_status Old post status.
  * @param WP_Post $post Post object.
  */
-function pending_submission_send_email( $new_status, $old_status, $post ) {
+function pending_submission_notifications_send_email( $new_status, $old_status, $post ) {
 
 	// Notify Admin that Contributor has written a post.
 	if ( 'pending' === $new_status && user_can( $post->post_author, 'edit_posts' ) && ! user_can( $post->post_author, 'publish_posts' ) ) {

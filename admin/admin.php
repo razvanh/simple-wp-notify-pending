@@ -11,13 +11,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( is_admin() ) {
-	add_action( 'admin_menu', 'pending_submission_notification_menu' );
+	add_action( 'admin_menu', 'pending_submission_notifications_menu' );
 }
 /**
  * Registers the plugin menu.
  */
-function pending_submission_notification_menu() {
-	add_options_page( 'Pending Submission Notifications Options', 'Pending Submission Notifications', 'manage_options', 'pending-submissions-notifications-settings', 'pending_submission_notification_options' );
+function pending_submission_notifications_menu() {
+	add_options_page( 'Pending Submission Notifications Options', 'Pending Submission Notifications', 'manage_options', 'pending-submissions-notifications-settings', 'pending_submission_notifications_options' );
 	add_action( 'admin_init', 'register_pending_submission_notifications_settings' );
 }
 
@@ -32,7 +32,7 @@ function register_pending_submission_notifications_settings() {
 /**
  * Creates the markup for the settings page.
  */
-function pending_submission_notification_options() {
+function pending_submission_notifications_options() {
 
 	?>
     <div class="wrap">
