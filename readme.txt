@@ -2,9 +2,9 @@
 Contributors: razvanh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=27TSHEJDTCTSQ
 Tags: notifications, pending submissions, submit for review, email notification, pending notification
-Requires at least: 3.8
+Requires at least: 4.6
 Tested up to: 4.9.4
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
