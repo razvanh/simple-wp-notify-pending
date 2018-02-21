@@ -3,7 +3,7 @@
  * Create the admin menu link to the plugin settings page. Creates the plugin settings page.
  *
  * @package Pending_Submission_Notification
- * @version 1.1
+ * @version 1.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

@@ -3,8 +3,8 @@ Contributors: razvanh
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=27TSHEJDTCTSQ
 Tags: notifications, pending submissions, submit for review, email notification, pending notification
 Requires at least: 3.8
-Tested up to: 4.7
-Stable tag: 1.1
+Tested up to: 4.9.4
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,15 +22,18 @@ For more info visit http://lifeofadesigner.com/
 == Installation ==
 
 
-1. Upload `pending-submission-notifications.php` to the `/wp-content/plugins/` directory
+1. Upload the `pending-submission-notifications` folder to to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. This is optional - change the emai address that should receive notifications under Settings>Pending Submission Notifications 
+3. This is optional - change the email address that should receive notifications under Settings>Pending Submission Notifications.
 
 == Screenshots ==
 
 1. Change email address that receives the notifications.
 
 == Changelog ==
+
+= 1.2 =
+*Added support for internationalization.
 
 = 1.1 =
 *Added information about last user to edit the post and the timestamp of last edit.

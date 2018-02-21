@@ -5,11 +5,11 @@
  * Description: Send email notifications to the admin whenever a new article is submitted for review by a contributor
  * Author: Razvan Horeanga
 ﻿﻿ * ﻿Text Domain: pending-submission-notifications
- * Version: 1.1
+ * Version: 1.2
  * Author URI: http://lifeofadesigner.com
 
  * @package Pending_Submission_Notification
- * @version 1.1
+ * @version 1.2
  **/
 
 // Exit if file is called directly.
